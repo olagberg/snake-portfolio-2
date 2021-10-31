@@ -1,0 +1,114 @@
+.popUp {
+    min-width: 450px;
+    width: 89%;
+    display: inherit;
+    overflow-x: auto;
+    min-height: 290px;
+
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.46);
+}
+
+label {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+}
+
+.popUp-inner {
+    padding: 34px;
+    width: 100%;
+    height: 100vh;
+    min-width: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    background: rgba(32, 162, 130, 0.14);
+    border-radius: 1.8em;
+    margin: 0 1% 2% 1%;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 2px 5px 5px 2px rgba(0, 0, 0, 0.14);
+    font-size: smaller;
+}
+
+.snakeVertical {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 100px;
+    max-width: 90px;
+}
+
+.snakeHorizontal {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 73px;
+    max-width: 90px;
+}
+
+.space {
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 55px;
+    max-width: 100px;
+
+}
+
+.upright {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 100px;
+    max-width: 90px;
+}
+
+.upleft {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 100px;
+    max-width: 90px;
+}
+
+.downleft {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 100px;
+    max-width: 90px;
+}
+
+.downright {
+    margin-top: 8px;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 100px;
+    max-width: 90px;
+}
+
+@media only screen and (max-width: 1026px) {
+    .popUp {
+        display: inline-flex;
+        margin-left: 18px;
+    }
+}

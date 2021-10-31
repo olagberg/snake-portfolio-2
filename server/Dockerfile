@@ -1,0 +1,14 @@
+FROM python:3.9.5-slim-buster
+# making /app/server to our workdir in the docker image; all the rest of the commands will be run there
+WORKDIR /app
+# expose port 5000 and 8000
+EXPOSE 5000 8000
+# ./server locally in this project = /app/server in this project in real time
+# VOLUME ./:/app
+# copies requirements.txt to /app/server/requirements.txt
+COPY requirements.txt requirements.txt
+# install dependencies
+RUN pip3 install -r requirements.txt
+# copy the rest of the files in ./server to docker image /app/server
+COPY . .
+CMD [ "python3", "-u", "app.py" ]

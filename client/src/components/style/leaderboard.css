@@ -1,0 +1,25 @@
+.leaderboard {
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+    background: rgba(241, 208, 42, 0.34);
+    border-radius: 0.8em;
+    min-width: 200px;
+    min-height: 200px;
+    padding: 10px;
+    margin: 0 0 50px;
+    box-shadow: 0 11px 15px 2px rgba(0, 0, 0, 0.14);
+}
+
+.headerLeader {
+    font-size: x-large;
+    font-weight: bold;
+    font-family: 'Consolas', 'Monaco', 'Bitstream Vera Sans Mono', sans-serif;
+}
+
+@media only screen and (max-width: 1020px) {
+    .leaderboard {
+        margin: 0 0 70px;
+
+    }
+}

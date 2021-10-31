@@ -1,0 +1,34 @@
+version: "3.9"
+# run and build docker-compose with command:
+# :~$ docker-compose up -d
+#
+# If at windows it's advisable to run it the first time in PowerShell or PyCharm instead of WSL2
+#
+services:
+    mongodb:
+        container_name: mongodb
+        build: ./mongodb
+        ports:
+            - "27017:27017"
+        volumes:
+            - ./mongodb/data/db/:/data/db
+        restart: unless-stopped
+    flask:
+        container_name: flask
+        build: ./server
+        ports:
+            - "8000:8000"
+        environment:
+            MONGODB_HOSTNAME: mongodb
+        # don't start until mongodb container is up
+        depends_on:
+            - mongodb
+        restart: unless-stopped
+    react:
+        container_name: react
+        build: ./client
+        ports:
+            - "3000:3000"
+        depends_on:
+            - flask
+        restart: unless-stopped

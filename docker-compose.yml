@@ -1,0 +1,62 @@
+version: "3.9"
+# run and build docker-compose with command:
+# :~$ docker-compose up -d
+#
+# If at windows it's advisable to do it the first time in PowerShell or PyCharm instead of WSL2
+#   GUIDE Promotheus: https://prometheus.io/docs/guides/cadvisor/
+# Promotheus: http://localhost:8080/docker/flask
+#
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - cadvisor
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - 8080:8080
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    depends_on:
+      - flask
+  mongodb:
+    container_name: mongodb
+    build: ./mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb/data/db/:/data/db
+    restart: unless-stopped
+  flask:
+    container_name: flask
+    build: ./server
+    ports:
+      - "8000:8000"
+    environment:
+      MONGODB_HOSTNAME: mongodb
+      NUMBOTS: 20
+    # don't start until mongodb container is up
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+  react:
+    # nginx
+    container_name: react
+    build: ./client
+    ports:
+      - "5000:5000"
+    depends_on:
+      - flask
+    restart: unless-stopped
+    # https://stackoverflow.com/questions/61857267/how-to-make-yarn-start-work-inside-docker-image-with-react-scripts-3-4-and-babel

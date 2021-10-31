@@ -1,0 +1,112 @@
+
+.container {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #20a282, #d0e267, #20a282, #359964);
+    background-size: 400% 400%;
+    animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1 {
+    margin-bottom: 10px ;
+    color: #264b43;
+    width: 90%;
+    text-align: center;
+    padding: 15px 0 20px 3px;
+    border-top: 4px dotted #264b43;
+}
+
+
+.btnSubmit:hover {
+    color: black;
+    font-weight: bolder;
+}
+
+.btnSubmit {
+    background-color: rgba(17, 130, 103, 0.77);
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 0.8em;
+    margin: 25px 10px 10px 10px;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    width: 70%;
+    cursor: pointer;
+    box-shadow: 1px 3px 8px 0 rgba(0,0,0,0.2), 0 4px 4px 0 rgba(0,0,0,0.05);
+}
+
+.mainPage {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(32, 162, 130, 0.48);
+    width: 340px;
+    height: 360px;
+    margin-top: 4vh;
+    margin-bottom: 3.8vh;
+    padding: 13px;
+    border-radius: 2em;
+    box-shadow: 0 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.startPlaying {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #092619;
+    font-family: 'Consolas', 'Monaco', 'Bitstream Vera Sans Mono', sans-serif;
+    font-size: 25px;
+}
+
+.changeServerFont {
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: 'Consolas', 'Monaco', 'Bitstream Vera Sans Mono', sans-serif;
+    font-size: 20px;
+}
+.form {
+    text-align: center;
+    position: inherit;
+    display: block;
+    overflow: auto;
+
+}
+.input {
+    width: 70%;
+    height: 40px;
+    border: #345244;
+    border-radius: 0.8em;
+    text-align: center;
+    position: inherit;
+    display: inline-block;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    cursor: text;
+    box-shadow: 1px 3px 8px 0 rgba(0,0,0,0.2), 0 4px 4px 0 rgba(0,0,0,0.05);
+}
+
+
+.label {
+    font-size: smaller;
+    text-align: center;
+    bottom: 10px;
+}
+
